@@ -1,6 +1,7 @@
 .search-bar{
     -webkit-appearance: none;
     border: none;
+    border-radius: 5%;
     outline: none;
     padding: 5px;
     width: 200px;

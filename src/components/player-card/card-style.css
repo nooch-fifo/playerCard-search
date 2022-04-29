@@ -4,7 +4,7 @@
     background-color: #f0ffff;
     border: 1px solid grey;
     border-radius: 25px;
-    padding: 125px;
+    padding: 15px; 
     cursor: pointer;
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -13,4 +13,69 @@
 
 .card-container:hover {
     transform: scale(1.05);
+}
+
+/* need to figure out background image for header */
+.card-header {
+    /* background-color: darkblue; */
+    background-image: url('/public/yankees-card-header.jpg');
+    background-size: cover;
+    height: 90px;
+}
+
+.img-holder {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    /* border: 5px solid black; */
+    overflow: hidden;
+    margin: 30px auto;
+}
+/* 
+.img-holder img {
+    width: 100%;
+    height: auto;
+    display: block;
+} */
+
+.player-name {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.player-number,
+.player-info,
+.stat {
+    font-weight: 400;
+    color: hsl(0, 11%, 12%);
+}
+
+.player-number {
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.card-footer {
+    border-top: 2px solid red;
+    display: flex;
+}
+
+.card-footer .item {
+    flex: 1;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-footer .item .value {
+    font-size: 1.1rem;
+    margin-bottom: -5px;
+}
+
+.card-footer .item .stat {
+    font-size: .6rem;
+    letter-spacing: 1px;
+    /* margin-top: -10px; */
 }

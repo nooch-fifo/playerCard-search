@@ -91,6 +91,8 @@ React: Functions vs Class Components:
     - functional components act just like JS functions 
         - take in arguments (props) and return JSX
         - run from top -> bottom 
+    - react renders & re-renders the entire functional component from top -> down when state/props change
+        - whereas with class components, the constructor-render-lifecyle-render methods were called individually at turns
     - SIDE EFFECTS: PURE and IMPURE functions
         - pure functions should always return the same value
             - pure functions are solely dependent on props being passed in
@@ -101,4 +103,49 @@ React: Functions vs Class Components:
         - React hooks are used to make impure functions
             - hooks are generating side effects
             - this is how functional components render / re render with hooks
+    - functional components get props automatically passed into function's argument
+        - example: 
+            - const Card = ({ yankee }) => {
+                const { PlayerID, FanDuelName, Jersey, Position, BatHand, Status } = yankee;
+            }
+                - since props is passed into function param by default, you can destructure off of props in param directly 
+
+React Hooks: 
+    - useState allows us to encapsukate local state in a functional component
+        - useState uses array destructuring to declare 2 variables
+        - useState then returns an array of 2 values
+            - 1 state variable and 1 variable to change (set) that state variable
+        - useState is used to set individual state values
+            - NOT a state object like in class components
+        - React re-renders when state changes initial state (similar to class components)
+            - setState does not necessarily cause a re-render
+                - if setState is just setting state to the initial state value, no re-render
+                - if setState is setting state to be different than initial state value, React re-renders
+    - useEffect allows us to handle side effects without re-rendering our function every time
+        - example: a fetch API call that uses setState will continuously re-set state with outside data
+            - thus the entire function will re-render every time in an infinite loop
+    - useEffect takes in 2 arguments
+        - 1) callback function: the code/effect we want to happen in our functional component
+            - is called first time component mounts (similar to lifecycle hook componentDidMount)
+        - 2) array of dependencies (dependencies being state values or props)
+            - whenever values in this array change is when the callback function will run again
+                - if you never want to run callback function again, then keep array empty
+
+DOM / VirtualDOM / ReactDOM:
+    - The VirtualDOM serves as a Snapshot of the real DOM
+    - The ReactDOM library serves as a Javascript Copy of the VirtualDOM
+
+    - Each time something in the real DOM changes, since DOM is represented as a tree structure, changes to the DOM are pretty quick BUT-
+      the changed element, and it’s children’s has to go through Reflow/Layout stage and then the changes have to be Re-painted (re-mounted) which are slow. 
+        - Therefore more the DOM elements/nodes to reflow/repaint, slower your app becomes.
+    - VirtualDom tries to minimize these two stages to get better performance. 
+        - Virtual means a representation of a UI is kept in memory and synced with the "real" DOM by a library such as ReactDOM
+    
+React with JSX vs Pure React Code:
+    - JSX is easier to read equivalent of React.createElement
+    - JSX looks like HTML & takes in JS variables
+        - React.createElement('h1', { class: 'title' }, "React is rendering")
+            - vs
+        - <h1 className = 'title'>React is rendering</h1>
+    - Pure React code component has to be in script tags in index.html to ReactDOM.render into getElementById('root')
 -->
