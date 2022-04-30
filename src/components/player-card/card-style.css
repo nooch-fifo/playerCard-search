@@ -79,3 +79,20 @@
     letter-spacing: 1px;
     /* margin-top: -10px; */
 }
+
+@media screen and (max-width:1000px) {
+    /* .card-container {
+        width: 40%
+    } */
+}
+
+@media screen and (max-width:720px) {
+    .card-container {
+        width: 100%;
+    }
+
+    .card-header {
+        height: 35px;
+    } 
+} 
+
